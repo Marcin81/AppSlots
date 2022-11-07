@@ -10,14 +10,18 @@ import SwiftUI
 struct CardView: View {
   @Binding var symbol:String
   @Binding var background:Color
+  private let transition: AnyTransition = AnyTransition.move(edge: .bottom)
 
   var body: some View {
-    Image(symbol)
-      .resizable()
-      .aspectRatio(1, contentMode: .fit)
-      .background(background.opacity(0.5))
-      .cornerRadius(20)
-    }
+//    VStack {
+      Image(symbol)
+        .resizable()
+        .aspectRatio(1, contentMode: .fit)
+        .transition(transition)
+//    }
+    .background(background.opacity(0.5))
+    .cornerRadius(20)
+  }
 }
 
 struct CardView_Previews: PreviewProvider {
